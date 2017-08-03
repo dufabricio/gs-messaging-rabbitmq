@@ -1,29 +1,4 @@
----
 
-#Iniciar o Docker Quickstart
-
-```
-docker-machine rm default ( remover machine defautl criada )
-docker-machine create -d virtualbox --engine-env HTTP_PROXY="http://user:pass@172.16.1.3:3128"   --engine-env HTTPS_PROXY="http://user:pass@172.16.1.3:3128" --engine-env NO_PROXY="localhost,127.0.0.1,192.168.1.101" default
-docker-machine ls  (verificar status da machine e IP atribuido)
-export NO_PROXY=localhost,127.0.0.1,192.168.1.101 < IP Atribuido
-echo $NO_PROXY (verifique se a variavel foi definida corretamente)
-docker-machine env
-```
-
-docker run  --privileged -ti -e "container=docker" --hostname localhost -p 5672:5672 -p 15672:15672 -p 22:22 -dit --name docker-container rabbitmq:management
-
-For docker over windows with proxy authentication
-
-PROXY
-https://github.com/docker/kitematic/wiki/Common-Proxy-Issues-&-Fixes
-[Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://username:password@proxy:port/", [EnvironmentVariableTarget]::Machine
-
-
----
-tags: [messaging, rabbitmq, stream]
-projects: [spring-amqp,spring-cloud-stream]
----
 :spring_boot_version: 1.5.6.RELEASE
 :toc:
 :icons: font
